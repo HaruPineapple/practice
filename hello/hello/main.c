@@ -6,27 +6,25 @@
 //
 
 #include <stdio.h>
-//求多值的平均数，并输出比平均数大的值
+//用数组统计数的个数
 int main(){
+    
+    const int number=10;//觉得数组大小
     int x;
-    double sum=0;
-    int cnt=0;
-    int number[100];//定义了一个变量，这个变量是数组。里面每个单元是int，数组大小是100=可以放100个int
+    int count[number];//定义数组
+    int i;
+    for(i=0;i<number;i++){
+        count[i]=0;
+    }//初始化数组
     scanf("%d",&x);
     while(x!=-1){
-        number[cnt]=x;
-        sum+=x;
-        cnt++;
+        if (x>=0 && x<=9){
+            count[x] ++;//数组参与运算
+        }
         scanf("%d",&x);
     }
-    if(cnt>0){
-        printf("%f\n",sum/cnt);
-        int i;
-        for (i=0;i<cnt;i++){
-            if(number[i]>sum/cnt){
-                printf("%d\n",number[i]);
-            }
-        }
-    }
+    for(i=0;i<number;i++){
+        printf("%d:%d\n",i,count[i]);
+    }//遍历数组输出
     return 0;
 }
