@@ -7,15 +7,15 @@
 //取地址运算
 #include <stdio.h>
 int main(void){
-    int i=0;
-    int p;
-    p=(int)&i;
-    printf("0x%x\n",&p);//0xbfeff298
-    printf("%p\n",&i);//0x7ff7bfeff29c
-    printf("%lu\n",sizeof(int));//4
-    printf("%lu\n",sizeof(&i));//8
+    int a[10];
+    
+    printf("%p\n",&a);//0x7ff7bfeff270
+    printf("%p\n",a);//0x7ff7bfeff270
+    printf("%p\n",&a[0]);//0x7ff7bfeff270
+    printf("%p\n",&a[1]);//0x7ff7bfeff274
 }
 
-//变量的地址
-//相邻变量的地址
-//&的结果的sizeof
+
+//数组的地址
+//数组单元的地址
+//相邻的数组单元的地址
