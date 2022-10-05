@@ -4,33 +4,34 @@
 //
 //  Created by Haru on 2022/9/6.
 //
-//数组例子：搜索
+//数组例子：构造范围内的素数表
 #include <stdio.h>
-int search(int key,int a[],int length);
-
-int main(void){
-    int a[]={1,3,5,7,2,4,10,8,9,};
-    int x;
-    int loc;
-    printf("请输入一个数字：");
-    scanf("%d",&x);
-    loc=search(x,a,sizeof(a)/sizeof(a[0]));
-    if(loc != -1){
-        printf("%d位置在%d。\n",x,loc);
-    }else{
-        printf("%d不存在。\n",x);
-    }
-    return 0;
-}
-
-int search(int key,int a[],int length){
-    int ret =-1;
+int main(){
+    const int maxNumber=25;
+    int isPrime[maxNumber];
     int i;
-    for(i=0; i<length; i++){
-        if(a[i]==key){
-            ret = i;
-            break;
+    int x;
+    
+    //初始化数组
+    for(i=0;i<maxNumber;i++){
+        isPrime[i]=1;
+    }
+    
+    //标记范围内的i倍数为合数
+    for(x=2;x<maxNumber;x++){
+        if(isPrime[x]){
+            for(i=2;i*x<maxNumber;i++){
+                isPrime[i*x]=0;
+            }
         }
     }
-    return ret;
+    
+    //输出范围内质数
+    for(i=2;i<maxNumber;i++){
+        if(isPrime[i]){
+            printf("%d\t",i);
+        }
+    }
+    
+    printf("\n");
 }
