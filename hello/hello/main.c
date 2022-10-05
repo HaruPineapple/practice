@@ -4,35 +4,33 @@
 //
 //  Created by Haru on 2022/9/6.
 //
-//数组例子：统计个数
+//数组例子：搜索
 #include <stdio.h>
+int search(int key,int a[],int length);
 
 int main(void){
-    const int number=10;//用一个counts的变量决定数组的大小
-    int i;
-    int count[number];//定义数组
+    int a[]={1,3,5,7,2,4,10,8,9,};
     int x;
-    
-    //初始化数组
-    for(i=0;i<number;i++){
-        count[i]=0;
-    }
-    
-    printf("请输入0-9之间的数字\n");
-    
-    //每次操作后的判断
+    int loc;
+    printf("请输入一个数字：");
     scanf("%d",&x);
-    while(x != -1){
-        if(x>=0 && x<number){
-            count[x] ++;
-        }
-        scanf("%d",&x);
+    loc=search(x,a,sizeof(a)/sizeof(a[0]));
+    if(loc != -1){
+        printf("%d位置在%d。\n",x,loc);
+    }else{
+        printf("%d不存在。\n",x);
     }
-    
-    //遍历数组作输出
-    for(i=0;i<number;i++){
-        printf("%d:%d\n",i,count[i]);
-    }
-    
     return 0;
+}
+
+int search(int key,int a[],int length){
+    int ret =-1;
+    int i;
+    for(i=0; i<length; i++){
+        if(a[i]==key){
+            ret = i;
+            break;
+        }
+    }
+    return ret;
 }
