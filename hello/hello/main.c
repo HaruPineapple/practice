@@ -6,16 +6,25 @@
 //
 //取地址运算
 #include <stdio.h>
+
+void f(int *p);
+void g(int k);
+
 int main(void){
-    int a[10];
+    int i=6;
+    printf("&i=%p\n",&i);
+    f(&i);
+    g(i);
     
-    printf("%p\n",&a);//0x7ff7bfeff270
-    printf("%p\n",a);//0x7ff7bfeff270
-    printf("%p\n",&a[0]);//0x7ff7bfeff270
-    printf("%p\n",&a[1]);//0x7ff7bfeff274
+    return 0;
 }
 
+void f(int *p){
+    printf(" p=%p\n",p);
+    printf("*p=%d\n",*p);
+    *p=26;
+}
 
-//数组的地址
-//数组单元的地址
-//相邻的数组单元的地址
+void g(int k){
+    printf(" k=%d\n",k);
+}
