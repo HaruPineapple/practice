@@ -8,9 +8,9 @@
 #include <stdio.h>
 
 int main(void){
-    const int number=10;
+    const int number=10;//用一个counts的变量决定数组的大小
     int i;
-    int count[number];
+    int count[number];//定义数组
     int x;
     
     //初始化数组
@@ -19,6 +19,7 @@ int main(void){
     }
     
     printf("请输入0-9之间的数字\n");
+    
     //每次操作后的判断
     scanf("%d",&x);
     while(x != -1){
@@ -28,7 +29,7 @@ int main(void){
         scanf("%d",&x);
     }
     
-    //输出
+    //遍历数组作输出
     for(i=0;i<number;i++){
         printf("%d:%d\n",i,count[i]);
     }
